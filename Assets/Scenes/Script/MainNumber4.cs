@@ -61,6 +61,8 @@ public class MainNumber4 : MonoBehaviour
         freeSpinCheck.FreeSpinProtect();
     }
 
+    
+
     //为了计算rtp的
     public float TargetRTP
     {

@@ -84,6 +84,13 @@ public class PlayerWallet : MonoBehaviour
         }
     }
 
+    public void PlayerWalletCheck()
+    {
+        if (WalletGet == 0)
+        {
+            return;
+        }
+    }
 
     public void ReadPlayerPrefMoney()
     {
