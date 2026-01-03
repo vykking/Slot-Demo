@@ -47,11 +47,14 @@ public class MainNumber4 : MonoBehaviour
     /// </summary>
     public void OnSpinStart()
     {
+        
         ui.ResetWinMoneyDisplay();
         freeSpinCheck.Check();
         freeSpinCheck.FreeSpinText();
         payLineCheck.ResetPayLineImage();
         ui.playerWinUIMoneyReset();
+        AudioManager.Instance.SpinSound(true);
+        
     }
 
     public void OnSpinMatrixResult(SymbolType[,] matrix)

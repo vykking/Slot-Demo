@@ -13,6 +13,7 @@ public class UI : MonoBehaviour
 
     [Header("赢的UI")]
     public GameObject winUI;
+    public GameObject notEnoughBalanceUI;
 
     [Header("玩家的钱")]
     public TextMeshProUGUI walletText;
@@ -124,6 +125,11 @@ public class UI : MonoBehaviour
             playerWallet.MoneyScoreGet = 0;
             moneyScoreText.text = playerWallet.MoneyScoreGet.ToString();
         }
+    }
+
+    public void NotEnoughBlanceUIActive(bool toogle)
+    {
+        notEnoughBalanceUI.SetActive(toogle);
     }
 
     public void ToggleSpeed(bool isFast)

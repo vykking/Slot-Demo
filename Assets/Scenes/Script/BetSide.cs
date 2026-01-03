@@ -17,7 +17,6 @@ public class BetSide : MonoBehaviour
 
     void Start()
     {
-
         //// 设成当前选项对应下注（一般为 0）
         betMoney = betOptions[0];
         betMoneyUI.text = betMoney.ToString();  
@@ -27,8 +26,7 @@ public class BetSide : MonoBehaviour
     {
         int currentIndex = System.Array.IndexOf(betOptions, betMoney);
 
-        if (currentIndex < betOptions.Length - 1 &&
-            playerWallet.WalletGet >= betOptions[currentIndex + 1])
+        if (currentIndex < betOptions.Length - 1 && playerWallet.WalletGet >= betOptions[currentIndex + 1])
         {
             betMoney = betOptions[currentIndex + 1];
             Debug.Log("Bet increased → " + betMoney);
@@ -61,11 +59,6 @@ public class BetSide : MonoBehaviour
                 break;
             }
         }
-    }
-
-    public void TestButton()
-    {
-        Debug.Log("Button Pressed!");
     }
 
     public int BetMoneyGet

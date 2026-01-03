@@ -8,9 +8,7 @@ public class SlotMachineController : MonoBehaviour
 
     public ReelController[] reels;
     public MainNumber4 main;
-
-    public TMP_Text playButtonText;
-
+    public PlayerWallet playerWallet;
 
     public float spinDuration = 1.2f;   // 旋转多久后开始停
     public float stopGap = 0.3f;        // 每个卷轴之间的停顿
@@ -77,9 +75,9 @@ public class SlotMachineController : MonoBehaviour
     public void OnPlayButton()
     {
         // 正在旋转或正在停轮就忽略点击
-        if (isStopping || isSpinningAll()) return;
+        if (!playerWallet.PlayerWalletCheck()) return;
+        if (isStopping || isSpinningAll()) return;    
         ApplySpeedMode();
-        AudioManager.Instance.SpinSound(true);
         StartCoroutine(SpinAndAutoStop());
     }
 
@@ -99,7 +97,7 @@ public class SlotMachineController : MonoBehaviour
     private IEnumerator SpinAndAutoStop()
     {
         // UI：开始一轮
-        playButtonText.text = "SPIN";
+
         if (playButton) playButton.interactable = false;
 
         isStopping = false;
@@ -119,7 +117,7 @@ public class SlotMachineController : MonoBehaviour
         // 允许下一轮
         isStopping = false;
         if (playButton) playButton.interactable = true;
-        playButtonText.text = "SPIN";
+
     }
     
 
