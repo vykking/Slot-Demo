@@ -47,11 +47,14 @@ public class MainNumber4 : MonoBehaviour
     /// </summary>
     public void OnSpinStart()
     {
+        
         ui.ResetWinMoneyDisplay();
         freeSpinCheck.Check();
         freeSpinCheck.FreeSpinText();
         payLineCheck.ResetPayLineImage();
         ui.playerWinUIMoneyReset();
+        AudioManager.Instance.SpinSound(true);
+        
     }
 
     public void OnSpinMatrixResult(SymbolType[,] matrix)
@@ -60,6 +63,8 @@ public class MainNumber4 : MonoBehaviour
         ui.UIUpdate(UI.eUIToString.Money);
         freeSpinCheck.FreeSpinProtect();
     }
+
+    
 
     //为了计算rtp的
     public float TargetRTP

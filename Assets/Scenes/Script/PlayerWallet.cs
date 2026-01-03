@@ -84,6 +84,19 @@ public class PlayerWallet : MonoBehaviour
         }
     }
 
+    public bool PlayerWalletCheck()
+    {
+        if (WalletGet < betSide.BetMoneyGet)
+        {
+            ui.NotEnoughBlanceUIActive(true);
+            return false;
+        }
+        else
+        {
+            ui.NotEnoughBlanceUIActive(false);
+            return true;
+        }
+    }
 
     public void ReadPlayerPrefMoney()
     {
